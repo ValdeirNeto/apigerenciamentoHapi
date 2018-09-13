@@ -10,6 +10,7 @@ module.exports = {
         method: 'GET',
         path: '/usuario',
         config: {
+          auth: 'jwt',
           description: 'Listando o Usuario',
           notes: 'retorna a lista de usuario',
           tags: ['api'],

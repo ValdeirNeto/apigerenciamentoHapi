@@ -48,7 +48,9 @@ const corePlugins = async(server) => {
           password: config.password,
           host: config.host,
           port: config.port
-        } }
+        } 
+      },
+      { plugin: require('./plugins/auth') }
     ]);
     
     return await Promise.all(pluginsPromisse);
