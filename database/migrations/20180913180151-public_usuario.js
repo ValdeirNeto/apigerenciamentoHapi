@@ -18,10 +18,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      salt: {
-        type: Sequelize.STRING(4096),
-        allowNull: null
-      },
       data_cadastro: {
         type: Sequelize.DATE,
         allowNull: null

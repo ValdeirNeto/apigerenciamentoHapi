@@ -10,7 +10,9 @@ module.exports = {
         method: 'GET',
         path: '/usuario',
         config: {
-          auth: 'jwt',
+          auth: {
+            scope: ['public']
+          },
           description: 'Listando o Usuario',
           notes: 'retorna a lista de usuario',
           tags: ['api'],
@@ -21,43 +23,13 @@ module.exports = {
         method: 'GET',
         path: '/usuario/{id}',
         config: {
+          auth: {
+            scope: ['public']
+          },
           description: 'Listando o Usuario',
           notes: 'retorna a lista de usuario',
           tags: ['api'],
           handler: Controller.get,
-          validate: Validator.get()
-        },
-      },
-      {
-        method: 'POST',
-        path: '/usuario',
-        config: {
-          description: 'Criando o Usuario',
-          notes: 'Criando o usuario',
-          tags: ['api'],
-          handler: Controller.create,
-          validate: Validator.create()
-        }
-      },
-      {
-        method: ['PUT', 'PATCH'],
-        path: '/usuario/{id}',
-        config: {
-          description: 'Atualiza o Usuario',
-          notes: 'Atualiza o usuario',
-          tags: ['api'],
-          handler: Controller.update,
-          validate: Validator.update()
-        }
-      },
-      {
-        method: 'DELETE',
-        path: '/usuario/{id}',
-        config: {
-          description: 'Deletando o Usuario',
-          notes: 'deletendo de usuario',
-          tags: ['api'],
-          handler: Controller.remove,
           validate: Validator.get()
         },
       }, 
