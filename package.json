@@ -6,12 +6,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "./node_modules/.bin/nodemon index.js",
-    "eslint": "./node_modules/.bin/eslint . --ext .js"
+    "eslint": "./node_modules/.bin/eslint . --ext .js",
+    "test": "./node_modules/.bin/lab -l -v -m 60000 -r console -o stdout -r html -o coverage/coverage.html -r lcov -o coverage/lcov.info  --pattern 'spec' ./src/test/index.spec.js ./src/modules/$1"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.2",
     "boom": "^7.2.0",
+    "code": "^5.2.0",
     "dotenv": "^6.0.0",
     "good": "^8.1.1",
     "good-console": "^7.1.0",
@@ -23,6 +25,7 @@
     "inert": "^5.1.0",
     "joi": "^13.6.0",
     "jsonwebtoken": "^8.3.0",
+    "lab": "^16.1.0",
     "lodash": "^4.17.11",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",

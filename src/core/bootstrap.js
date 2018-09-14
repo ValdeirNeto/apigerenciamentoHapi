@@ -17,6 +17,8 @@ const start = async () => {
     await corePlugins(server);
     await routePlugins(server);
 
+    if(process.env.NODE_ENV === 'test') return server;
+
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);
   } catch (err) {
