@@ -7,12 +7,13 @@ const Sequelize = require('sequelize');
 
 module.exports = {
   register: async (server, options) => {
-    const sequelize = new Sequelize(options.database, options.username, options.passowrd, {
-      host: options.host,
-      port: options.port,
-      dialect: 'postgres',
-      operatorsAliases: false
-    });
+    // const sequelize = new Sequelize(options.database, options.username, options.passowrd, {
+    //   host: options.host,
+    //   port: options.port,
+    //   dialect: 'mysql',
+    //   operatorsAliases: false
+    // });
+    const sequelize = new Sequelize('mysql://root:example@localhost:4010/teste', { operatorsAliases: Sequelize.Op });
 
     const db = {};
     const dir = path.join(__dirname, '../../models');

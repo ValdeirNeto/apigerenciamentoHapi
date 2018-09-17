@@ -10,9 +10,7 @@ module.exports = {
         method: 'GET',
         path: '/usuario',
         config: {
-          auth: {
-            scope: ['public']
-          },
+          auth: false,
           description: 'Listando o Usuario',
           notes: 'retorna a lista de usuario',
           tags: ['api'],
@@ -23,9 +21,7 @@ module.exports = {
         method: 'GET',
         path: '/usuario/{id}',
         config: {
-          auth: {
-            scope: ['public']
-          },
+          auth: false,
           description: 'Listando o Usuario',
           notes: 'retorna a lista de usuario',
           tags: ['api'],

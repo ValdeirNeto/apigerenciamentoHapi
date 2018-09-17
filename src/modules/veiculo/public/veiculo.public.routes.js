@@ -1,33 +1,31 @@
 'use strict';
 
-const Controller = require('./usuario.admin.controller');
-const Validator = require('./usuario.admin.validation');
+const Controller = require('./veiculo.public.controller');
+const Validator = require('./veiculo.public.validation');
 
 module.exports = {
   register: async (server) => {
     server.route([
       {
         method: 'GET',
-        path: '/admin/usuario',
+        path: '/veiculo',
         config: {
-          auth: {
-            scope: ['admin']
-          },
-          description: 'Listando o Usuario',
-          notes: 'retorna a lista de usuario',
+          auth: false,
+          description: 'Listando o veiculo',
+          notes: 'retorna a lista de veiculo',
           tags: ['api'],
           handler: Controller.list
         },
       },
       {
         method: 'GET',
-        path: '/admin/usuario/{id}',
+        path: '/veiculo/{id}',
         config: {
           auth: {
-            scope: ['admin']
+            scope: ['public']
           },
-          description: 'Listando o Usuario',
-          notes: 'retorna a lista de usuario',
+          description: 'Listando o veiculo',
+          notes: 'retorna a lista de veiculo',
           tags: ['api'],
           handler: Controller.get,
           validate: Validator.get()
@@ -35,11 +33,11 @@ module.exports = {
       },
       {
         method: 'POST',
-        path: '/admin/usuario',
+        path: '/veiculo',
         config: {
           auth: false,
-          description: 'Criando o Usuario',
-          notes: 'Criando o usuario',
+          description: 'Criando o veiculo',
+          notes: 'Criando o veiculo',
           tags: ['api'],
           handler: Controller.create,
           validate: Validator.create()
@@ -47,13 +45,13 @@ module.exports = {
       },
       {
         method: ['PUT', 'PATCH'],
-        path: '/admin/usuario/{id}',
+        path: '/veiculo/{id}',
         config: {
           auth: {
-            scope: ['admin']
+            scope: ['public']
           },
-          description: 'Atualiza o Usuario',
-          notes: 'Atualiza o usuario',
+          description: 'Atualiza o veiculo',
+          notes: 'Atualiza o veiculo',
           tags: ['api'],
           handler: Controller.update,
           validate: Validator.update()
@@ -61,13 +59,13 @@ module.exports = {
       },
       {
         method: 'DELETE',
-        path: '/admin/usuario/{id}',
+        path: '/veiculo/{id}',
         config: {
           auth: {
-            scope: ['admin']
+            scope: ['public']
           },
-          description: 'Deletando o Usuario',
-          notes: 'deletendo de usuario',
+          description: 'Deletando o veiculo',
+          notes: 'deletendo de veiculo',
           tags: ['api'],
           handler: Controller.remove,
           validate: Validator.get()
@@ -76,6 +74,6 @@ module.exports = {
     ]
     );
   },
-  name: 'usuario-admin-route',
+  name: 'veiculo-public-route',
   version: '1.0.0'
 };

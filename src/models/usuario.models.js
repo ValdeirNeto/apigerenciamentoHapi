@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     freezeTableName: true,
     createdAt: 'data_cadastro',
     updatedAt: 'data_atualizacao',
-    schema: 'public',
+    // schema: 'public',
   });
 
   Usuario.prototype.checarSenha = function (senha) {
